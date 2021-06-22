@@ -1,8 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+
+
+
+
+
 .Title {
     font-family:Comic Sans MS, Comic Sans, cursive;
-    font-size: 80px;
+    font-size: 150px;
     text-align: center;
     color: white;
+    height: 200px;
+    width: 100%;
+    background-color: rgb(36, 34, 34);
+    top: 0;
 }
 
 .background {
@@ -30,6 +48,7 @@
     font-family:Comic Sans MS, Comic Sans, cursive;
     margin: auto;
     text-align: center;
+    top: 10px;
 
 }
 
@@ -40,17 +59,30 @@
     background-color: #696464;
     border-radius: 10px;
     position: relative;
+    top: 10px;
 }
 
 .menubuttonstyle {
-    color: rgb(66, 60, 60);
+    color: rgb(255, 255, 255);
     text-align: center;
     width: 200px;
     height: 100px;
     font-size: xx-large;
     font-family:Comic Sans MS, Comic Sans, cursive;
     border-radius: 15px;
+    background-color: rgb(66, 60, 60);
 }
+
+
+.menubuttonstyle:hover {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: xx-large;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    border-radius: 15px;
+    background-color: rgb(59, 55, 55);
+}
+
 
 .centerbuttons {
     position: absolute;
@@ -59,6 +91,7 @@
 }
 
 h2 {
+    top: 600px;
     color: white;
     font-size: large;
     text-align: center;
@@ -66,6 +99,13 @@ h2 {
 }
 
 h2:hover {
+    top: 600px;
     font-size: larger;
     color: white;
+}
+
+.menubuttonstyle:active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(51, 48, 48);
+
 }
