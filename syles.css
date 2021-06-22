@@ -2,4 +2,70 @@
     font-family:Comic Sans MS, Comic Sans, cursive;
     font-size: 80px;
     text-align: center;
+    color: white;
+}
+
+.background {
+    background-color: rgb(66, 60, 60);
+}
+
+.board {
+    position: absolute;
+    display: grid;
+    grid-gap: 5px;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    height: 600px;
+    width: 600px;
+}
+
+
+.board_grid {
+    grid-gap: 5px;
+    width: 180px;
+    height: 180px;
+    background-color: rgb(85, 75, 75);
+    border-radius: 10px;
+    font-size: 115px;
+    color: white;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    margin: auto;
+    text-align: center;
+
+}
+
+.screen {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    background-color: #696464;
+    border-radius: 10px;
+    position: relative;
+}
+
+.menubuttonstyle {
+    color: rgb(66, 60, 60);
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    font-size: xx-large;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    border-radius: 15px;
+}
+
+.centerbuttons {
+    position: absolute;
+    top: 43%;
+    left: 33%;
+}
+
+h2 {
+    color: white;
+    font-size: large;
+    text-align: center;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+}
+
+h2:hover {
+    font-size: larger;
+    color: white;
 }
