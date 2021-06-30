@@ -10,20 +10,14 @@
 <h1 class="Title"> Tic-Tac-Toe </h1>
 <body class="background">
     <div class="screen"> 
-        <div class="board">
-            <div class="board_grid">x</div>
-            <div class="board_grid">o</div>
-            <div class="board_grid">x</div>
-            <div class="board_grid">x</div>
-            <div class="board_grid">x</div>
-            <div class="board_grid">o</div>
-            <div class="board_grid">x</div>
-            <div class="board_grid">o</div>
-            <div class="board_grid">o</div>
+        <div id='#board' class="board">
+
         </div>
 
+            <!--
             <div class="centerbuttons">
-                <button class="menubuttonstyle"> -START- </button>
+                <button onclick="delete_item()" class="menubuttonstyle"> -START- </button>
+            -->
 
         </div>    
     </div>
@@ -32,5 +26,128 @@
         <h1>1</h1>
         <h2> made by jediknight813 on github </h2>
     </footer>
+
+
+
+    <script>
+        var Gamemode = "TwoPlayer"
+        var player_turn = "one"
+        var board_id = 0
+        var board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        var game_over = false
+
+
+
+        function add_board_grid() {
+            let btn = document.createElement("button");
+            btn.value = board_id
+            board_id += 1
+
+
+            btn.onclick = function(div, btn){
+                if (player_turn == "one" && this.innerHTML == ""){
+                    this.innerHTML = "x"
+                    player_turn = "two"
+                    board[this.value] = "x"
+                    check_game_over("x")
+                    return
+                }
+                if (player_turn == "two" && this.innerHTML == ""){
+                    this.innerHTML = "o"
+                    player_turn = "one"
+                    board[this.value] = "o"
+                    check_game_over("o")
+                    return
+                }
+
+
+            }
+
+            btn.innerHTML = ""
+            btn.className = 'board_grid'
+            document.getElementById("#board").appendChild(btn)
+        }
+
+
+
+
+
+        function check_game_over(xy){
+            if (board[0] == xy && board[1] == xy && board[2] == xy){
+                reset_board_grid()
+            }
+
+            if (board[3] == xy && board[4] == xy && board[5] == xy){
+                reset_board_grid()
+            }
+
+            if (board[6] == xy && board[7] == xy && board[8] == xy){
+                reset_board_grid()
+            }
+
+            if (board[0] == xy && board[3] == xy && board[6] == xy){
+                reset_board_grid()
+            }
+            
+            if (board[1] == xy && board[4] == xy && board[7] == xy){
+                reset_board_grid()
+            }
+
+            if (board[2] == xy && board[5] == xy && board[8] == xy){
+                reset_board_grid()
+            }
+
+            if (board[0] == xy && board[4] == xy && board[8] == xy){
+                reset_board_grid()
+            }
+
+            if (board[2] == xy && board[4] == xy && board[6] == xy){
+                reset_board_grid()
+            }
+
+        }
+
+        function reset_board_grid(){
+            parent = document.getElementById("#board")
+            while (parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+            }
+            board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            board_id = 0
+            fill_board()
+        }
+
+        function fill_board() {
+            var i = 9
+            while (i > 0){
+                i -= 1
+                add_board_grid()
+            }
+        }
+
+        fill_board()
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

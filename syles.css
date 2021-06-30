@@ -8,10 +8,6 @@
 }
 
 
-
-
-
-
 .Title {
     font-family:Comic Sans MS, Comic Sans, cursive;
     font-size: 150px;
@@ -49,6 +45,12 @@
     margin: auto;
     text-align: center;
     top: 10px;
+
+}
+
+
+.board_grid:hover {
+    background-color: rgb(68, 61, 61);
 
 }
 
