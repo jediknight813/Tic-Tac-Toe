@@ -10,6 +10,7 @@
 <h1 class="Title"> Tic-Tac-Toe </h1>
 <body class="background">
     <div class="screen"> 
+        <div id="winlosetiescreen" class="winlosetiescreen"> player one won! </div>
         <div id='#board' class="board">
 
         </div>
@@ -35,6 +36,7 @@
         var board_id = 0
         var board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         var game_over = false
+        document.getElementById("winlosetiescreen").style.display = "none";
 
 
 
@@ -50,6 +52,7 @@
                     player_turn = "two"
                     board[this.value] = "x"
                     check_game_over("x")
+                    check_if_tie_game()
                     return
                 }
                 if (player_turn == "two" && this.innerHTML == ""){
@@ -57,6 +60,7 @@
                     player_turn = "one"
                     board[this.value] = "o"
                     check_game_over("o")
+                    check_if_tie_game()
                     return
                 }
 
@@ -75,34 +79,42 @@
         function check_game_over(xy){
             if (board[0] == xy && board[1] == xy && board[2] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
             if (board[3] == xy && board[4] == xy && board[5] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
             if (board[6] == xy && board[7] == xy && board[8] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
             if (board[0] == xy && board[3] == xy && board[6] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
             
             if (board[1] == xy && board[4] == xy && board[7] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
             if (board[2] == xy && board[5] == xy && board[8] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
             if (board[0] == xy && board[4] == xy && board[8] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
             if (board[2] == xy && board[4] == xy && board[6] == xy){
                 reset_board_grid()
+                show_winner(xy)
             }
 
         }
@@ -115,6 +127,45 @@
             board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
             board_id = 0
             fill_board()
+        }
+
+        function check_if_tie_game() {
+            if (board.includes(0)) {
+                return
+            }
+            else {
+                reset_board_grid()
+                show_winner("t")
+            }
+
+        }
+
+
+        function show_winner(player) {
+            x = document.getElementById("winlosetiescreen")
+    
+            if (player == "x") {
+                x.innerHTML = "player one won!"
+                document.getElementById("winlosetiescreen").style.display = "block";
+                setTimeout(hide_win_screen, 3000)
+            }
+
+            if (player == "o") {
+                x.innerHTML = "player two won!"
+                document.getElementById("winlosetiescreen").style.display = "block";
+                setTimeout(hide_win_screen, 2000)
+            }
+
+            if (player == "t") {
+                x.innerHTML = "tie!"
+                document.getElementById("winlosetiescreen").style.display = "block";
+                setTimeout(hide_win_screen, 2000)
+            }
+
+        }
+
+        function hide_win_screen() {
+            document.getElementById("winlosetiescreen").style.display = "none";
         }
 
         function fill_board() {
